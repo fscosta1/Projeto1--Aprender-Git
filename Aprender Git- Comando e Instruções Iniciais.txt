@@ -74,7 +74,13 @@ COMANDOS AVANÇADOS
 		
 10- PULL REquest - aprovação de outro acima na cadeia - um merge democrático	
 
+		solicitação feita dentro do  git hub em um botão da atualização, quando da atualizações na branch
+
+11-  git ignore - não enviar alguns arquivos
+		criar um artivo do tipo git onde será colocado o nome dos arquivos que é para ignorar
+		código : touch .gitignore
 		
+o orquivo git ignore deve ser adicionado no controle de versão
 
 
 
