@@ -1,0 +1,39 @@
+1- comando inicializar
+git init
+
+2- verificar status(verificar o local onde o código está, verificando se está ou não atualizado
+git status
+vê um relatório
+-No commits yet : sem versões novas do código
+-Untracked files : aponta quais documentos não estão no controle de versão
+
+3- Adicionar arquivos no controle de versão
+1 arquivo por vez: git add "nome_completo_do_arquivo_incluido_extensão"
+vários arquivos: git add .
+
+4- Criar versões do código com o commit
+git commit -m "" --( '-m'= mensagem ai se descreve o que foi feito naquela versão normalmente no primeiro git comit se descreve 'commit inicial'
+Comit
+	4.1 - configurar o usuário na primeira vez
+		código: git config --global user.email "you@example.com" -- e-mail do github
+  		código :git config --global user.name "Your Name" --Noque que vai aparecer a cada commit
+5- Como enviar alterações usando git Push - envia os arquivos para nuvem
+	5.1 Criar um novo repositório na conta do git hub
+	5.2 colocar o endereço do local que é para o arquivo ir
+		código: git remote add origin <url>
+	5.2 Definir o Branch
+		normalmente é sempre enviado para a master
+			Código: git push --set-upstream origin master
+
+6- Ciclo de atualização do código 
+	1- verificar se teve atualização
+	código: git status
+	2- adiciona a nova versão
+	código : git add . 
+	3- verificar se foi adicionado
+	código : git status
+	4-criar a nova versão
+	código : git commit -m "descrever o que foi feito nessa nova versão"
+
+
+
