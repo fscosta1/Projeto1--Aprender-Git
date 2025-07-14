@@ -1,3 +1,4 @@
+COMANDOS BÀSICOS
 1- comando inicializar
 git init
 
@@ -34,6 +35,46 @@ Comit
 	código : git status
 	4-criar a nova versão
 	código : git commit -m "descrever o que foi feito nessa nova versão"
+
+
+7- verificar versões:
+	código : git reflog
+
+COMANDOS AVANÇADOS
+
+8- Navegar entre as versões
+	8.1 cometi um erro quero voltar na verção anterior, ciclo ANTES DE RODAR ESSE CODIGO PEGAR ALTORIZAÇÂO COM DEV SUPERIOR, RESPONSÁVEL:
+		8.1.1 verificar verções :
+			código : git reflog
+		8.1.2 voltar na versão desejada/ ir até a versão desejada
+			código : git reset --hard <código do commit que você quer voltar>
+
+9- O que são Brach e como cria-las: São tipos 'pastas de arquivo' onde estão guardadas as atualizações,  em grandes équites normalmente tem uma Branch onde estão arquivos que funciona e pode ter outras onde tem arquivos em desenvolvimento
+	9.1 ver quais branches estão disponíveis:
+		Código: git branch
+	9.2 Criar uma nova branch
+		código : git pull na bach princial - puxar ultimas atualizações
+		código : git branch <nome da branche> - nome normalmente usado em desenvolvimento de software em coisas que estão sendo testadas - staging
+		
+		exemplo: git branch stanging
+	9.3 mudar de brach
+		código : git checkout <nome da branch>
+		sempre que der rodar uma nova brench (git push na nova branch) rodar o comando que o git informa para subir o arquivo
+	9.4 trazer atualizações da branch de test para a branch estável
+		9.4.1- Entrar na branch que vai receber as atualizações
+			código : git checkout < nome da branch>
+		9.4.2- verificar se está na branch correta
+			código: git branch ( branch correta estará de cor diferente e indicada  com asterisco)
+		9.4.3 -  Antes  de fazer o merge puxar as ultimas atualizações para ter certeza que está  fazendo atualizações na versão mais recente
+			código : git pull -- traz as atualizações do servidor para a maquina local
+		9.4.4 -  unir as atualizações com o código estável
+			código : git merge <nome da branch que está a atualização para ser puxada para a estável)
+		9.4.5 - enviar as atualizações para a nuvem
+			Código : git push da branch principal
+		
+10- PULL REquest - aprovação de outro acima na cadeia - um merge democrático	
+
+		
 
 
 
