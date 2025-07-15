@@ -1,4 +1,20 @@
 COMANDOS BÀSICOS
+
+BAIXAR PROJETOS:
+1- criar a pasta do projeto
+2- Abrir o terminal
+3- comando inicializar
+	Código : git init
+4- Clonar (baixar) o projeto do GitLab
+	1-tenha o link HTTPS do projeto (ex: https://gitlab.com/empresa/projeto.git)
+	2- rode o código para clonar
+	Código : git clone <https://gitlab.com/empresa/projeto.git link do projeto>
+		Esse comando vai baixar o projeto inteiro e criar uma pasta com o nome dele.
+5- Criar uma nova branch para trabalhar
+	git checkout -b minha-feature
+
+
+PASSO A PASSO DENTRO DA PASTAS PARA MANDAR PARA NUVEM
 1- comando inicializar
 git init
 
@@ -82,5 +98,17 @@ COMANDOS AVANÇADOS
 		
 o orquivo git ignore deve ser adicionado no controle de versão
 
+
+resumo de comandos:
+
+Etapa	Comando
+Configurar nome e e-mail	git config --global user.name + user.email
+Clonar projeto	git clone URL
+Entrar no projeto	cd nome-da-pasta
+Criar branch	git checkout -b nome-da-branch
+Ver alterações	git status
+Adicionar arquivos	git add .
+Criar commit	git commit -m "mensagem"
+Enviar pro GitLab	git push origin nome-da-branch
 
 
