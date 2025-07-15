@@ -1,0 +1,152 @@
+Docker
+
+1- Documentação: Dockerfile
+2- Rodar a aplicação : 
+	código: .\mvnw spring-boot:run
+
+3- clean limpa o target- cria um build:
+Usar o Maven local do projeto (mvnw)
+Se você quiser usar o Maven sem instalar nada no PC, use o wrapper que já está no seu projeto.
+	código: .\mvnw clean package
+ 
+
+exemplo doc file
+Código: (rodar o básico)
+FROM eclipse-temurin:17 -- Base do tipo de aplicação
+LABEL maintainer="contato@java10x.dev" -- dono da imagem
+WORKDIR /app -- onde vai salvar
+COPY target/DockerAula.Javax10-0.0.1-SNAPSHOT.jar /app/aula-docker.jar -- A ação que estou copiando
+ENTRYPOINT [ "java", "-jar", "aula-docker.jar" ] - Autorização para rodar o arquivo
+
+
+4- buildar a imagem:
+o Docker desktop precisa estar aberto
+abrir no terminal a pasta app
+e buildar o arquivo dockerfile:
+
+	Código: Docker build -t < nome da imagem>
+
+	verificar qual imagens tem criada:
+  	código: Docker imagens
+
+5- Push para dentro do dockerHUB
+	1 Passo - Verificar se existe alguma coisa rodando
+		código : docker ps
+	2 Passo - Verificar o nome da imagem
+		código : docker ps -a
+	3 Passo: criar uma versão da imagem pronta na maquina para poder dar push
+		- criar uma tag : 
+			código : Docker tag <nome da imagem criada> username <nome do usuário do docker> /<nome da pasta>:<tag de versão>
+	4 PAsso : verificar se criou a imagem
+		código : docker images
+	5 passo : logar no Docker
+		código : docker login
+	6 passo : dar o push
+		código: Boa pergunta! Vou explicar direitinho como você **puxa a imagem de outra pessoa** (do Docker Hub, por exemplo) e **roda essa imagem em um container localmente**.
+
+---
+
+## Como puxar e rodar uma imagem Docker pronta
+
+### 1. **Puxar a imagem do Docker Hub**
+
+Use o comando `docker pull` para baixar a imagem:
+
+```bash
+docker pull nomeusuario/nome-da-imagem:tag
+```
+
+Exemplo:
+
+```bash
+docker pull nginx:latest
+```
+
+Ou uma imagem que alguém publicou, como:
+
+```bash
+docker pull postgres:15
+```
+
+Se não passar a tag, ele baixa a `latest` por padrão.
+
+---
+
+### 2. **Verifique se a imagem foi baixada**
+
+```bash
+docker images
+```
+
+Ela deve aparecer na lista.
+
+---
+
+### 3. **Rodar um container usando a imagem**
+
+```bash
+docker run -d -p 8080:80 --name meu-container nginx:latest
+```
+
+Explicando:
+
+* `-d`: roda o container em background (modo "detach")
+* `-p 8080:80`: mapeia a porta 80 do container para a porta 8080 do seu PC
+* `--name meu-container`: dá um nome ao container (opcional)
+* `nginx:latest`: a imagem que vai rodar
+
+---
+
+### 4. **Acessar a aplicação**
+
+Agora você pode acessar no navegador:
+
+```
+http://localhost:8080
+```
+
+(se for nginx no exemplo)
+
+---
+
+### 5. **Verificar containers rodando**
+
+```bash
+docker ps
+```
+
+---
+
+### 6. **Parar o container**
+
+```bash
+docker stop meu-container
+```
+
+---
+
+### 7. **Remover o container**
+
+```bash
+docker rm meu-container
+```
+
+---
+
+## Resumo simples
+
+| Passo                  | Comando                                                                    |
+| ---------------------- | -------------------------------------------------------------------------- |
+| Baixar imagem          | `docker pull nomeusuario/imagem:tag`                                       |
+| Rodar container        | `docker run -d -p porta_host:porta_container --name nome_container imagem` |
+| Ver containers rodando | `docker ps`                                                                |
+| Parar container        | `docker stop nome_container`                                               |
+| Remover container      | `docker rm nome_container`                                                 |
+
+---
+
+Se quiser, posso ajudar com exemplos reais para a imagem que você quer usar.
+Quer tentar?
+ocker push <nome da imagem que criou no passo 3>
+
+
